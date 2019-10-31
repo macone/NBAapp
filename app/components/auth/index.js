@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import { StyleSheet, View, Text, ScrollView, ActivityIndicator } from 'react-native';
 
 import AuthLogo from './authlogo';
-
+import AuthForm from './authForm'
 
 class AuthComponent extends Component {
 
@@ -22,7 +22,7 @@ class AuthComponent extends Component {
 				<ScrollView style={styles.container}>
 					<View>
 						<AuthLogo />
-
+						<AuthForm />
 					</View>
 				</ScrollView>
 			);
