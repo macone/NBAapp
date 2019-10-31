@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import { Platform, StyleSheet, ScrollView, View, Text } from 'react-native';
-
+import { StyleSheet, View, Text } from 'react-native';
+import { RootNavigator } from './routes';
 
 class App extends Component {
+
 	render() {
+		const Nav = RootNavigator();
+
 		return (
 			<View style={styles.container}>
-				<Text>Hello world</Text>
+				<Nav/>
 			</View>
 		);
 	}
@@ -15,9 +18,7 @@ class App extends Component {
 const styles = StyleSheet.create({
 	container: {
 		flex: 1,
-		justifyContent: 'center',
-		alignItems: 'center',
-		backgroundColor: '#f5fcff',
+		backgroundColor: '#fff',
 	},
 });
 
