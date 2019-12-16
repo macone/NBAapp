@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "748992113221",
+    "firebase_url": "https://rn-nba-app-db.firebaseio.com",
+    "project_id": "rn-nba-app-db",
+    "storage_bucket": "rn-nba-app-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:748992113221:android:3f89625b5ae3fcb98c512c",
+        "android_client_info": {
+          "package_name": "nba.App"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "748992113221-n258ithfpccut1arrd7jape3bm3qc6ku.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5aI0WWwdRqOWlvVrwtqDvU3DLQOt2YSM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "748992113221-n258ithfpccut1arrd7jape3bm3qc6ku.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

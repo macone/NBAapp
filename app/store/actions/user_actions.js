@@ -33,7 +33,8 @@ export function signUp(data) {
 }
 
 export function signIn(data) {
-
+	console.log('dupa')
+	console.log(data)
 	const request = axios({
 		method: 'POST',
 		url: SIGNIN,

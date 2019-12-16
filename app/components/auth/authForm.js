@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, Button, Platform } from 'react-native';
-import Input from '../../utils/forms/input'
-import ValidationRules from '../../utils/forms/validationRules'
+import Input from '../../utils/forms/input';
+import ValidationRules from '../../utils/forms/validationRules';
 
-import { connect } from 'react-redux'
-import { signUp, signIn } from '../../store/actions/user_actions'
-import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux';
+import { signUp, signIn } from '../../store/actions/user_actions';
+import { bindActionCreators } from 'redux';
+
+import { setTokens } from '../../utils/misc';
 
 class AuthForm extends Component {
 
@@ -98,10 +100,25 @@ class AuthForm extends Component {
 		})
 	}
 
+	manageAccess = () => {
+		console.log(this.props.User)
+		if (!this.props.User.auth.uid) {
+			this.setState({
+				hasErrors:true
+			})
+		} else {
+			setTokens(this.props.User.auth,()=>{
+				this.setState({hasErrors:false})
+				this.props.goNext()
+			})
+		}
+	}
+
 	submitUser = () => {
 		let isFormValid = true
 		let formToSubmit = {};
 		const formCopy = this.state.form;
+		console.log(formCopy)
 
 		for (let key in formCopy) {
 			if (this.state.type === 'Login') {
@@ -118,10 +135,16 @@ class AuthForm extends Component {
 		}
 
 		if (isFormValid) {
+			console.log(this.state)
 			if (this.state.type === 'Login') {
-				this.props.signIn(formToSubmit)
+				console.log(formToSubmit)
+				this.props.signIn(formToSubmit).then(()=>{
+					this.manageAccess()
+				})
 			} else {
-				this.props.signUp(formToSubmit)
+				this.props.signUp(formToSubmit).then(()=>{
+					this.manageAccess()
+				})
 			}
 		} else {
 			this.setState({
@@ -212,6 +235,7 @@ const styles = StyleSheet.create({
 })
 
 function mapStateToProps(state) {
+	console.log(state)
 	return {
 		User: state.User
 	}
